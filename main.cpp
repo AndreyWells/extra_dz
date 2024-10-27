@@ -18,6 +18,13 @@ int main()
         in_binary1.seekg(0, ios::beg);
         BMPHeader bmpHeader;
         in_binary1.read(reinterpret_cast<char*>(&bmpHeader), sizeof(bmpHeader));
-        cout << bmpHeader.fileSize << endl;
+         if (actFileSize == bmpHeader.fileSize) {
+        cout << "The actual and nominal file sizes are equal" << endl;
+    } else {
+        cout << "The actual and nominal file sizes are not equal"<< endl;
+        cout <<"The actual file size is " << actFileSize << " bytes"<< endl;
+        cout <<"The nominal file size is " << bmpHeader.fileSize << " bytes" << endl;
+    }
+
 }
 }
