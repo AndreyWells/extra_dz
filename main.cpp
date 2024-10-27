@@ -11,5 +11,11 @@ struct BMPHeader {
 };
 int main()
 {
-
+ ifstream in_binary1("image.bmp",ios::binary);
+    if (in_binary1.is_open()) {
+        in_binary1.seekg(0, ios::end);
+        size_t actFileSize = in_binary1.tellg();
+        in_binary1.seekg(0, ios::beg);
+        cout << actFileSize << endl;
+}
 }
