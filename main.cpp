@@ -16,6 +16,8 @@ int main()
         in_binary1.seekg(0, ios::end);
         size_t actFileSize = in_binary1.tellg();
         in_binary1.seekg(0, ios::beg);
-        cout << actFileSize << endl;
+        BMPHeader bmpHeader;
+        in_binary1.read(reinterpret_cast<char*>(&bmpHeader), sizeof(bmpHeader));
+        cout << bmpHeader.fileSize << endl;
 }
 }
