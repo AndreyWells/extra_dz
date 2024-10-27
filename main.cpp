@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdint>
+#pragma pack(1, push)
 using namespace std;
 struct BMPHeader {
   uint16_t fileType;
@@ -9,9 +10,10 @@ struct BMPHeader {
   uint16_t reserved2;
   uint32_t offsetData;
 };
+#pragma pack(pop)
 int main()
 {
- ifstream in_binary1("image.bmp",ios::binary);
+ ifstream in_binary1("test1.bmp",ios::binary);
     if (in_binary1.is_open()) {
         in_binary1.seekg(0, ios::end);
         size_t actFileSize = in_binary1.tellg();
@@ -25,7 +27,6 @@ int main()
     }
     if (actFileSize == bmpHeader.fileSize) {
         cout << "The actual and nominal file sizes are equal " <<actFileSize<<" bytes"<< endl;
-
     }
     else {
         cout << "The actual and nominal file sizes are not equal"<< endl;

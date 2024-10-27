@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1730038322 source:c:\users\79088\desktop\dopdz\main.cpp
+	<iostream>
+	<fstream>
+	<cstdint>
+
